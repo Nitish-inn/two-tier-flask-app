@@ -10,6 +10,11 @@ pipeline {
                     branch: "master"
             }
         }
+        stage("Trivy File System Scan"){
+             steps{
+                sh "/usr/bin/trivy fs . -o results.json"
+             }
+       }
     
 
         stage("Build") {
