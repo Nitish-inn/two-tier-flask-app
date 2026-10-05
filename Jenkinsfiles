@@ -10,17 +10,7 @@ pipeline {
                     branch: "master"
             }
         }
-        stage("trivy file system scan") {
-            steps {
-               sh '''
-                  whoami
-                    echo "PATH=$PATH"
-                  ls -l /usr/bin/trivy
-                /usr/bin/trivy --version
-                   /usr/bin/trivy fs . -o results.json
-                  '''
-            }
-       }
+    
 
         stage("Build") {
             steps {
